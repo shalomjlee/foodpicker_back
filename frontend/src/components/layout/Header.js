@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export class Header extends Component {
-	render() {
-		return (
-			<nav className='navbar navbar-expand-sm navbar-light bg-light'>
+const Header = ({ setToken, setLoggedIn}) => {
+    return (
+        <nav className='navbar navbar-expand-sm navbar-light bg-light'>
 				<div className='container-fluid'>
 					<button
 						className='navbar-toggler'
@@ -16,27 +17,29 @@ export class Header extends Component {
 						<span className='navbar-toggler-icon'></span>
 					</button>
 					<div className='collapse navbar-collapse' id='navbarTogglerDemo01'>
-						<a className='navbar-brand' href='#'>
-							Testing
+						<a className='navbar-brand' href='/'>
+							Food Picker
 						</a>
 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
 							<li className='nav-item'>
-								<a className='nav-link active' aria-current='page' href='#'>
+								<a className='nav-link active' aria-current='page' href='/'>
 									Home
 								</a>
 							</li>
 							<li className='nav-item'>
-								<a className='nav-link active' aria-current='page' href='#'>
+								<a className='nav-link active' aria-current='page' href='/api/register/'>
 									Signup
 								</a>
 							</li>
 							<li className='nav-item'>
-								<a className='nav-link active' aria-current='page' href='#'>
+								<a className='nav-link active' aria-current='page' href='/api/login/'>
 									Login
 								</a>
 							</li>
 							<li className='nav-item'>
-								<a className='nav-link active' aria-current='page' href='#'>
+								<a className='nav-link active' aria-current='page' href='/api/login' onClick={() => {
+                                    setLoggedIn(false)
+                                }}>
 									Logout
 								</a>
 							</li>
@@ -44,8 +47,57 @@ export class Header extends Component {
 					</div>
 				</div>
 			</nav>
-		);
-	}
-}
+    );
+};
 
-export default Header;
+export default Header; 
+// {
+// 		return (
+// 			<nav className='navbar navbar-expand-sm navbar-light bg-light'>
+// 				<div className='container-fluid'>
+// 					<button
+// 						className='navbar-toggler'
+// 						type='button'
+// 						data-bs-toggle='collapse'
+// 						data-bs-target='#navbarTogglerDemo01'
+// 						aria-controls='navbarTogglerDemo01'
+// 						aria-expanded='false'
+// 						aria-label='Toggle navigation'>
+// 						<span className='navbar-toggler-icon'></span>
+// 					</button>
+// 					<div className='collapse navbar-collapse' id='navbarTogglerDemo01'>
+// 						<a className='navbar-brand' href='/'>
+// 							Food Picker
+// 						</a>
+// 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+// 							<li className='nav-item'>
+// 								<a className='nav-link active' aria-current='page' href='/'>
+// 									Home
+// 								</a>
+// 							</li>
+// 							<li className='nav-item'>
+// 								<a className='nav-link active' aria-current='page' href='api/register/'>
+// 									Signup
+// 								</a>
+// 							</li>
+// 							<li className='nav-item'>
+// 								<a className='nav-link active' aria-current='page' href='api/login/'>
+// 									Login
+// 								</a>
+// 							</li>
+// 							<li className='nav-item'>
+// 								<a className='nav-link active' aria-current='page' href='api/logout' onClick={() => {
+//                                     setLoggedIn(false)
+//                                 }}>
+// 									Logout
+// 								</a>
+// 							</li>
+// 						</ul>
+// 					</div>
+// 				</div>
+// 			</nav>
+// 		);
+// 	}
+// }
+
+// export default Header;
